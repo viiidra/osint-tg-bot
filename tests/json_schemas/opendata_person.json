@@ -1,0 +1,15 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "title": "personResponse",
+    "type": "object",
+    "properties": {
+        "status": {"type": "string"},
+        "data": {
+            "type": "object",
+            "properties": {
+                "pib": {"type": "string"},
+                "factors": {"anyOf": [{"type": "array", "items": {}}]}
+            }
+        }
+    }, "required": ["status", "data"]
+}

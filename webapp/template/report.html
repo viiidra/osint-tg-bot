@@ -1,0 +1,231 @@
+{% include 'header.html' %}
+<section class="report">
+    <div class="container">
+        {% if results["BigBook Results"] -%}
+        <h1>BigBookName Results</h1>
+            <table class="table" border="1" align="center" width="90%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th align="center">
+                            Name
+                        </th>
+                        <th align="center">
+                            Age
+                        </th>
+                        <th align="center">
+                            Home
+                        </th>
+                        <th align="center">
+                            Picture
+                        </th>
+                        <th align="center">
+                            Profile Link
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for person in results["BigBook Results"] -%}
+                        <tr>
+                            <td>
+                                {{person["Name"]}}
+                            </td>
+                            <td>
+                                {{person["Age"]}}
+                            </td>
+                            <td>
+                                {{person["Home"]}}
+                            </td>
+                            <td>
+                                <img src="{{person["Picture"]}}" class="avatar_img">
+<!--                                {{person["Picture"]}}-->
+                            </td>
+                            <td>
+<!--                                <a href="{{person["Profile Link"]}}" class="btn button">Profile</a>-->
+                                <input type="button" class="btn-primary"
+                                       onclick="location.href='{{person["Profile Link"]}}';" value="Profile" />
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+
+        {% if results["VK Results"] -%}
+        <h1>VK Results</h1>
+        <table class="table" border="1" align="center" width="90%" cellspacing="0">
+            <thead>
+            <tr>
+                <th align="center">
+                    Name
+                </th>
+                <th align="center">
+                    Possible nickname
+                </th>
+                <th align="center">
+                    Picture
+                </th>
+                <th align="center">
+                    Profile Link
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for person in results["VK Results"] -%}
+            <tr>
+                <td>
+                    {{person["Name"]}}
+                </td>
+                <td>
+                    {{person["Possible nickname"]}}
+                </td>
+                <td>
+                    <img src="{{person["Avatar Link"]}}" class="avatar_img">
+                </td>
+                <td>
+                    <input type="button" class="btn-primary"
+                           onclick="location.href='{{person["Profile Link"]}}';" value="Profile" />
+                </td>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+
+        {% if results["BlackBird Results"] -%}
+        <h1>BlackBird Results (across 582 social networks)</h1>
+        <table class="table" border="1" align="center" width="90%" cellspacing="0">
+            <thead>
+            <tr>
+                <th align="center">
+                    Site
+                </th>
+                <th align="center">
+                    Picture
+                </th>
+                <th align="center">
+                    Profile Link
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for person in results["BlackBird Results"] -%}
+            <tr>
+                <td>
+                    {{person["Site"]}}
+                </td>
+                <td>
+                    <img src="{{person["Picture"]}}" class="avatar_img">
+                </td>
+                <td>
+                    <input type="button" class="btn-primary"
+                           onclick="location.href='{{person["Profile Link"]}}';" value="Profile" />
+                </td>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+
+        {% if results["OpenData Results"] -%}
+        <h1>OpenData Results</h1>
+        <table class="table" border="1" align="center" width="90%" cellspacing="0">
+            <thead>
+            <tr>
+                <th align="center">
+                    Name
+                </th>
+                <th align="center">
+                    Details
+                </th>
+                <th align="center">
+                    Location
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for person in results["OpenData Results"] -%}
+            <tr>
+                <td>
+                    {{person["Name"]}}
+                </td>
+                <td>
+                    {{person["Details"]}}
+                </td>
+                <td>
+                    {{person["Location"]}}
+                </td>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+
+        {% if results["Facebook"] -%}
+        <h1>Facebook Results</h1>
+        <table class="table" border="1" align="center" width="90%" cellspacing="0">
+            <thead>
+            <tr>
+                <th align="center">
+                    Title
+                </th>
+                <th align="center">
+                    Picture
+                </th>
+                <th align="center">
+                    Link
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for person in results["Facebook"] -%}
+            <tr>
+                <td>
+                    {{person["Title"]}}
+                </td>
+                <td>
+                    <img src="{{person["Picture"]}}" class="avatar_img">
+                </td>
+                <td>
+                    <input type="button" class="btn-primary"
+                           onclick="location.href='{{person["Link"]}}';" value="Link" />
+                </td>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+
+        {% if results["DDG"] -%}
+        <h1>DuckDuckGo Results</h1>
+        <table class="table" border="1" align="center" width="90%" cellspacing="0">
+            <thead>
+            <tr>
+                <th align="center">
+                    Title
+                </th>
+                <th align="center">
+                    Picture
+                </th>
+                <th align="center">
+                    Link
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for person in results["DDG"] -%}
+            <tr>
+                <td>
+                    {{person["Title"]}}
+                </td>
+                <td>
+                    <img src="{{person["Picture"]}}" class="avatar_img">
+                </td>
+                <td>
+                    <input type="button" class="btn-primary"
+                           onclick="location.href='{{person["Link"]}}';" value="Link" />
+                </td>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+
+    <h3><a href="{{report_url}}" target="_blank">Report is available here</a></h3>
+    </div>
+</section>
+{% include 'footer.html' %}
